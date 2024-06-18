@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRUTHIK's Portfolio</title>
+    <!-- Include Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include custom styles -->
+    <style>
+        .dark-mode {
+            background-color: #333;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">KRUTHIK LINGADAHALLI GURUMURTHY</h1>
+            <!-- Dark mode toggle button -->
+            <button id="dark-mode-button" class="bg-blue-500 text-white px-4 py-2 rounded">Toggle Dark Mode</button>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="my-12 mx-auto p-8 max-w-4xl bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">About Me</h2>
+        <p>I'm a recent graduate with a passion for software development, particularly in Java and SQL databases. I love solving problems and building efficient, scalable solutions.</p>
+    </section>
+    
+    <!-- Education details -->
+    <section id="about" class="my-12 mx-auto p-8 max-w-4xl bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Education details</h2>
+        <p>Bachelor degree in Elecrical and electronics engineering from vishveshvarayya technologies university and passed out during 2023 june.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="my-12 mx-auto p-8 max-w-4xl bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Skills</h2>
+        <ul class="list-disc list-inside">
+            <li>Core Java </li>
+            <li>SQL Databases</li>
+            <li>Agile</li>
+            <li>selenium</li>
+            <li>Microsoft excell</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="my-12 mx-auto p-8 max-w-4xl bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Projects</h2>
+        <!-- Add project cards here -->
+        <ul class="list-disc list-inside">
+            <li>Efficiency enhancement of vertical wind turbine using maglev effect </li>
+            
+            <!-- Add more skills as needed -->
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="my-12 mx-auto p-8 max-w-4xl bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Contact details</h2>
+        <!-- Add contact form or information here -->
+        <ul class="list-disc list-inside">
+            <li>name-Kruthik L G </li>
+            <li>mail-kkruthik445@gmail.com</li>
+            <li>number-6366098510</li>
+            <li>address-bengaluru</li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-12 p-6 text-center">
+        © 2024 KRUTHIK L G. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript for Dark Mode Toggle -->
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+
+        // Add event listener to the dark mode button
+        document.getElementById('dark-mode-button').addEventListener('click', toggleDarkMode);
+    </script>
+
+</body>
+</html>
