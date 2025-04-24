@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kruthik L G - QA Engineer</title>
+    <title>Kruthik L G - QA Automation Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,6 +12,7 @@
             --accent: #FF6B6B;
             --dark: #17252A;
             --light: #DEF2F1;
+            --white: #FFFFFF;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -38,11 +39,12 @@
         /* Header Section */
         .header {
             text-align: center;
-            padding: 4rem 0;
+            padding: 5rem 0;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .header::after {
@@ -58,25 +60,27 @@
         }
 
         .profile-pic {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             margin-bottom: 1.5rem;
-            border: 4px solid rgba(255,255,255,0.1);
+            border: 4px solid rgba(255,255,255,0.2);
             box-shadow: 0 8px 24px rgba(0,0,0,0.3);
             transition: var(--transition);
+            object-fit: cover;
         }
 
         .profile-pic:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 25px var(--primary);
+            box-shadow: 0 0 30px rgba(255,255,255,0.3);
         }
 
         .contact-info {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .contact-info a {
@@ -89,11 +93,39 @@
             padding: 0.8rem 1.5rem;
             border-radius: 30px;
             background: rgba(255,255,255,0.1);
+            font-weight: 500;
         }
 
         .contact-info a:hover {
-            background: var(--primary);
+            background: var(--white);
+            color: var(--secondary);
             transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 50px;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: var(--primary);
+            color: var(--white);
         }
 
         /* Section Headings */
@@ -102,11 +134,12 @@
             margin: 4rem 0 2rem;
             position: relative;
             color: var(--light);
+            font-size: 1.8rem;
         }
 
         .section-title::after {
             content: '';
-            width: 60px;
+            width: 70px;
             height: 3px;
             background: var(--accent);
             position: absolute;
@@ -117,32 +150,49 @@
 
         /* Content Cards */
         .content-card {
-            padding: 2rem;
+            padding: 2.5rem;
             background: rgba(255,255,255,0.05);
             border-radius: 16px;
             margin: 2rem 0;
             border: 1px solid rgba(255,255,255,0.1);
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .content-card:hover {
             transform: translateY(-5px);
             background: rgba(255,255,255,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
         }
 
         .skill-category {
-            padding: 1.5rem;
+            padding: 1.8rem;
             background: rgba(255,255,255,0.05);
             border-radius: 12px;
             border: 1px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
         }
 
         .skill-list {
@@ -159,6 +209,13 @@
             border-radius: 20px;
             font-size: 0.9rem;
             border: 1px solid rgba(58,175,169,0.3);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
         /* Timeline */
@@ -182,6 +239,15 @@
             position: relative;
             margin-bottom: 3rem;
             padding-left: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            background: rgba(255,255,255,0.07);
         }
 
         .timeline-item::before {
@@ -192,17 +258,38 @@
             border: 3px solid var(--primary);
             border-radius: 50%;
             position: absolute;
-            left: -8px;
-            top: 5px;
+            left: -38px;
+            top: 24px;
         }
 
         /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
         .project-card {
-            margin: 2rem 0;
             padding: 2rem;
             background: rgba(255,255,255,0.05);
             border-radius: 16px;
             border-left: 4px solid var(--accent);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
 
         .project-tech {
@@ -210,6 +297,105 @@
             gap: 0.8rem;
             flex-wrap: wrap;
             margin: 1rem 0;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .cert-card {
+            padding: 1.8rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border-top: 3px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .cert-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        /* Personal Skills */
+        .personal-skills {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .personal-skill-tag {
+            background: rgba(255,106,107,0.15);
+            color: var(--accent);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin: 0.5rem;
+            display: inline-block;
+            border: 1px solid rgba(255,106,107,0.3);
+            transition: var(--transition);
+        }
+
+        .personal-skill-tag:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 2rem 0;
+            background: rgba(255,255,255,0.03);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px) rotate(8deg);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out forwards;
         }
 
         /* Responsive Design */
@@ -222,9 +408,25 @@
                 padding: 3rem 0;
             }
             
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
+            .nav {
+                padding: 0.7rem;
+            }
+            
+            .nav a {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -232,9 +434,9 @@
 <body>
     <header class="header">
         <div class="container">
-            <img src="profile.jpg" alt="Kruthik L G" class="profile-pic">
+            <img src="/api/placeholder/400/400" alt="Kruthik L G" class="profile-pic">
             <h1>Kruthik L G</h1>
-            <p style="margin: 1rem 0;">QA Automation Engineer</p>
+            <p style="margin: 1rem 0; font-size: 1.2rem;">QA Automation Engineer</p>
             <div class="contact-info">
                 <a href="tel:+916366098510">
                     <i class="fas fa-phone"></i>
@@ -248,51 +450,41 @@
         </div>
     </header>
 
+    <nav class="nav container">
+        <a href="#about" class="active">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <main class="container">
         <!-- Professional Summary -->
-        <section class="content-card">
-            <h2 class="section-title">Professional Summary</h2>
-            <p>Detail-oriented Electrical Engineering graduate skilled in Java, Selenium, and Appium for automating web/mobile apps. Proficient in functional, API, and performance testing (JMeter/Postman) using Agile workflows. Certified in SDLC and code debugging, with presented innovative research.</p>
-        </section>
-
-        <!-- Education -->
-        <section>
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Sapthagiri College of Engineering</h3>
-                    <p>Bachelor of Engineering in Electrical and Electronics Engineering</p>
-                    <p style="color: var(--primary); margin-top: 0.5rem;">2019 – 2023 | CGPA: 7.1</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>SDM Pre-University College, Ujire</h3>
-                    <p>Pre-University College</p>
-                    <p style="color: var(--primary); margin-top: 0.5rem;">2017 – 2018 | Percentage: 74%</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Govt High School, Lingadahalli</h3>
-                    <p>High School</p>
-                    <p style="color: var(--primary); margin-top: 0.5rem;">2015 – 2016 | Percentage: 87%</p>
-                </div>
-            </div>
+        <section id="about" class="content-card">
+            <h2 class="section-title">About Me</h2>
+            <p>Detail-oriented QA Automation Engineer with a background in Electrical Engineering and specialized expertise in test automation for web and mobile applications. I create robust test frameworks using Java, Selenium, and Appium while following Agile methodologies. My experience includes functional testing, API testing, and performance testing using tools like JMeter and Postman.</p>
+            <p style="margin-top: 1rem;">I'm passionate about ensuring software quality and constantly updating my skills to stay current with industry best practices. My approach combines technical precision with effective communication to deliver high-quality testing solutions.</p>
         </section>
 
         <!-- Technical Skills -->
-        <section>
+        <section id="skills">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Languages</h3>
+                    <h3><i class="fas fa-code"></i> Languages</h3>
                     <div class="skill-list">
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML/CSS</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Automation Tools</h3>
+                    <h3><i class="fas fa-tools"></i> Automation Tools</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Appium</span>
                         <span class="skill-tag">Selenium WebDriver</span>
+                        <span class="skill-tag">Appium</span>
                         <span class="skill-tag">Bugzilla</span>
                         <span class="skill-tag">JMeter</span>
                         <span class="skill-tag">Postman</span>
@@ -301,113 +493,196 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Frameworks</h3>
+                    <h3><i class="fas fa-sitemap"></i> Frameworks</h3>
                     <div class="skill-list">
                         <span class="skill-tag">Cucumber (BDD)</span>
                         <span class="skill-tag">TestNG</span>
                         <span class="skill-tag">JUnit</span>
-                        <span class="skill-tag">POM</span>
+                        <span class="skill-tag">Page Object Model</span>
+                        <span class="skill-tag">Data-Driven Testing</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>CI/CD & Version Control</h3>
+                    <h3><i class="fas fa-server"></i> CI/CD & Version Control</h3>
                     <div class="skill-list">
                         <span class="skill-tag">Jenkins</span>
                         <span class="skill-tag">Maven</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Docker Basics</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Certifications -->
-        <section>
-            <h2 class="section-title">Certifications</h2>
-            <div class="content-card">
-                <h3>Accenture Certifications</h3>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>Developer and Technology Job Simulation (SDLC, Agile)</li>
-                    <li>Coding: Development & Advanced Engineering (OOP, CI)</li>
-                </ul>
-                
-                <h3 style="margin-top: 2rem;">JP Morgan Chase & Co</h3>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>Software Engineering Lite Job Simulation</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Awards -->
-        <section>
-            <h2 class="section-title">Awards</h2>
-            <div class="content-card">
-                <h3>International Conference Presentation</h3>
-                <p>Presented paper titled "Efficiency Enhancement of Wind Turbine Using MAGLEV Technique"</p>
-                <p style="color: var(--primary); margin-top: 0.5rem;">ICGCP-2023 | 5 Jul 2023</p>
-            </div>
-        </section>
-
         <!-- Projects -->
-        <section>
+        <section id="experience">
             <h2 class="section-title">Projects</h2>
             
-            <div class="project-card">
-                <h3>1. Mobile Automation Testing Using Appium</h3>
-                <div class="project-tech">
-                    <span class="skill-tag">Appium</span>
-                    <span class="skill-tag">Selenium</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Android Studio</span>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3><i class="fas fa-laptop-code"></i> QA Automation - OrangeHRM Testing (2025)</h3>
+                    <div class="project-tech">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Selenium WebDriver</span>
+                        <span class="skill-tag">Page Object Model</span>
+                        <span class="skill-tag">Manual Testing</span>
+                    </div>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Completed a comprehensive QA assessment for Omnify within the 4-day timeline</li>
+                        <li>Developed 8+ detailed test cases for login functionality with test steps and validation criteria</li>
+                        <li>Identified and documented 3 potential bugs/usability issues with detailed reproduction steps</li>
+                        <li>Built an end-to-end automation framework using Python, Selenium, and Page Object Model</li>
+                        <li>Automated critical workflows including login, employee creation, verification, and logout</li>
+                    </ul>
                 </div>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>Developed automated testing framework for Android/iOS applications</li>
-                    <li>Created reusable utility methods for explicit waits and dynamic element handling</li>
-                    <li>Achieved 90% test coverage and reduced manual effort by 50%</li>
-                </ul>
-            </div>
 
-            <div class="project-card">
-                <h3>2. API and Performance Testing</h3>
-                <div class="project-tech">
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">JMeter</span>
-                    <span class="skill-tag">Jenkins</span>
+                <div class="project-card">
+                    <h3><i class="fas fa-mobile-alt"></i> Android App - Employee Directory (2025)</h3>
+                    <div class="project-tech">
+                        <span class="skill-tag">Java/Kotlin</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">UI Design</span>
+                    </div>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Developed a functional Android application using Android Studio for Greendzine Technologies</li>
+                        <li>Implemented REST API integration to fetch and display user data from external endpoints</li>
+                        <li>Created a custom ListView to display employee details including ID, name, and email</li>
+                        <li>Built a real-time search functionality allowing users to filter employees by first name</li>
+                    </ul>
                 </div>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>Conducted load/stress testing with 1000+ virtual users</li>
-                    <li>Integrated tests into CI/CD pipeline</li>
-                    <li>Created comprehensive API test suites</li>
-                </ul>
-            </div>
 
-            <div class="project-card">
-                <h3>3. Automated Web Testing with Selenium</h3>
-                <div class="project-tech">
-                    <span class="skill-tag">Selenium</span>
-                    <span class="skill-tag">TestNG</span>
-                    <span class="skill-tag">Maven</span>
+                <div class="project-card">
+                    <h3><i class="fas fa-tablet-alt"></i> Mobile Automation Testing Using Appium</h3>
+                    <div class="project-tech">
+                        <span class="skill-tag">Appium</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Android Studio</span>
+                    </div>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Developed automated testing framework for Android/iOS applications</li>
+                        <li>Created reusable utility methods for explicit waits and dynamic element handling</li>
+                        <li>Implemented reporting features with screenshots for failed tests</li>
+                        <li>Achieved 90% test coverage and reduced manual effort by 50%</li>
+                    </ul>
                 </div>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>Developed testing framework for e-commerce website verification</li>
-                    <li>Automated functional and integration testing</li>
-                    <li>Documented test cases and identified improvement areas</li>
-                </ul>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-server"></i> API and Performance Testing</h3>
+                    <div class="project-tech">
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">JMeter</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Conducted load/stress testing with 1000+ virtual users</li>
+                        <li>Identified performance bottlenecks and provided optimization recommendations</li>
+                        <li>Integrated tests into CI/CD pipeline with automated reporting</li>
+                        <li>Created comprehensive API test suites with data-driven testing approach</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3><i class="fas fa-university"></i> Sapthagiri College of Engineering</h3>
+                    <p>Bachelor of Engineering in Electrical and Electronics Engineering</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">2019 – 2023 | CGPA: 7.1</p>
+                    <p style="margin-top: 1rem;">Coursework: Programming Fundamentals, Database Management Systems, Computer Networks, Engineering Mathematics</p>
+                </div>
+                <div class="timeline-item">
+                    <h3><i class="fas fa-school"></i> SDM Pre-University College, Ujire</h3>
+                    <p>Pre-University College (Science Stream)</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">2017 – 2018 | Percentage: 74%</p>
+                    <p style="margin-top: 1rem;">Subjects: Physics, Chemistry, Mathematics, Computer Science</p>
+                </div>
+                <div class="timeline-item">
+                    <h3><i class="fas fa-graduation-cap"></i> Govt High School, Lingadahalli</h3>
+                    <p>High School</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">2015 – 2016 | Percentage: 87%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h3><i class="fas fa-certificate"></i> Accenture Certifications</h3>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Developer and Technology Job Simulation (SDLC, Agile)</li>
+                        <li>Coding: Development & Advanced Engineering (OOP, CI)</li>
+                    </ul>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">Issued: January 2025</p>
+                </div>
+                
+                <div class="cert-card">
+                    <h3><i class="fas fa-certificate"></i> JP Morgan Chase & Co</h3>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Software Engineering Lite Job Simulation</li>
+                        <li>Code Reviews and Design Principles</li>
+                    </ul>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">Issued: December 2024</p>
+                </div>
+
+                <div class="cert-card">
+                    <h3><i class="fas fa-award"></i> International Conference Presentation</h3>
+                    <p>Presented paper titled "Efficiency Enhancement of Wind Turbine Using MAGLEV Technique"</p>
+                    <p style="color: var(--primary); margin-top: 0.5rem;">ICGCP-2023 | July 5, 2023</p>
+                </div>
             </div>
         </section>
 
         <!-- Personal Skills -->
         <section>
             <h2 class="section-title">Personal Skills</h2>
-            <div class="skill-list" style="margin: 1.5rem 0;">
-                <span class="skill-tag">Analytical Thinking</span>
-                <span class="skill-tag">Root Cause Analysis</span>
-                <span class="skill-tag">Agile Collaboration</span>
-                <span class="skill-tag">Adaptability</span>
-                <span class="skill-tag">Stakeholder Communication</span>
-                <span class="skill-tag">Test Documentation</span>
+            <div class="personal-skills">
+                <span class="personal-skill-tag"><i class="fas fa-brain"></i> Analytical Thinking</span>
+                <span class="personal-skill-tag"><i class="fas fa-search"></i> Root Cause Analysis</span>
+                <span class="personal-skill-tag"><i class="fas fa-users"></i> Agile Collaboration</span>
+                <span class="personal-skill-tag"><i class="fas fa-sync-alt"></i> Adaptability</span>
+                <span class="personal-skill-tag"><i class="fas fa-comments"></i> Stakeholder Communication</span>
+                <span class="personal-skill-tag"><i class="fas fa-file-alt"></i> Test Documentation</span>
+                <span class="personal-skill-tag"><i class="fas fa-tasks"></i> Project Management</span>
+                <span class="personal-skill-tag"><i class="fas fa-lightbulb"></i> Problem Solving</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-card">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">I'm currently looking for new opportunities in QA automation. Feel free to reach out if you'd like to connect!</p>
+            
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary);"></i>
+                    <h3 style="margin: 1rem 0;">Email</h3>
+                    <p><a href="mailto:kkruthik445@gmail.com" style="color: var(--light); text-decoration: none;">kkruthik445@gmail.com</a></p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary);"></i>
+                    <h3 style="margin: 1rem 0;">Phone</h3>
+                    <p><a href="tel:+916366098510" style="color: var(--light); text-decoration: none;">+91 63660 98510</a></p>
+                </div>
             </div>
         </section>
     </main>
-</body>
-</html>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:kkruthik445@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+916366098510"><i class="fas fa-phone"></i></a>
+            </div>
+            <p>© 2025 Kruthik L G. All rights reserved.</p>
+        </div>
+    </footer>
